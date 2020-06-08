@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 # Variables
+DATA_DIR=${DATA_DIR:-'/data'}
 DEBIAN_FRONTEND=noninteractive
 DEPENDENCIES="apt-transport-https ca-certificates curl gnupg-agent software-properties-common"
 PACKAGES="docker-ce docker-ce-cli containerd.io"
@@ -32,6 +33,13 @@ configure_user()
   usermod -aG docker ${USER}
 }
 
+## Create data directory
+create_data_dir()
+{
+  echo "Creating data directory..."
+  mkdir -p ${DATA_DIR}
+}
+
 ## Install Docker dependencies
 install_deps()
 {
@@ -61,3 +69,4 @@ install_deps
 add_repo
 install_docker
 configure_user
+create_data_dir

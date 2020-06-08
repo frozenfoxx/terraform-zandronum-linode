@@ -19,6 +19,7 @@ module "zandronum" {
   config              = var.zandronum_server_config
   image               = var.image
   name                = "zandronum"
+  options             = var.zandronum_options
   private_key         = chomp(file(var.private_ssh_key))
   region              = var.region
   type                = var.type

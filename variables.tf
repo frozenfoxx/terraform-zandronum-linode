@@ -5,7 +5,7 @@ variable "authorized_keys" {
 
 variable "config" {
   default     = ""
-  description = "Zandronum server configuration"
+  description = "Zandronum server configuration, base64 encoded"
 }
 
 variable "image" {
@@ -21,6 +21,11 @@ variable "group" {
 variable "name" {
   default     = "zandronum"
   description = "Hostname of the system"
+}
+
+variable "options" {
+  default = ""
+  description = "String of options to pass to the server"
 }
 
 variable "private_key" {

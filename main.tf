@@ -27,7 +27,7 @@ resource "linode_instance" "main" {
     inline = [
       "chmod 755 /tmp/scripts/*.sh",
       "/tmp/scripts/install_docker.sh",
-      "CONFIG=${var.config} /tmp/scripts/install_zandronum.sh"
+      "CONFIG=${var.config} /tmp/scripts/install_zandronum_server.sh"
     ]
   }
 }

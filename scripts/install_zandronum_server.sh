@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 
 # Variables
-
+CONFIG=${CONFIG:-''}
+DATA_DIR=${DATA_DIR:-'/data'}
 IMAGE=${IMAGE:-'frozenfoxx/zandronum-server:latest'}
+OPTIONS=${OPTIONS:-''}
 RESTART=${RESTART:-'always'}
 
 # Functions
@@ -22,18 +24,23 @@ run_container()
     -d \
     --restart=${RESTART} \
     -p 10666:10666 \
+    -v ${DATA_DIR}/wads/:/wads
+    -e CONFIG=${CONFIG} \
     --name='zandronum-server' \
-    ${IMAGE}
+    ${IMAGE} \
+    ${OPTIONS}
 }
 
 ## Display usage information
 usage()
 {
-  echo "Usage: [Environment Variables] install_zandronum.sh [arguments]"
+  echo "Usage: [Environment Variables] install_zandronum_server.sh [arguments]"
   echo "  Arguments:"
   echo "    -h                     display usage information"
   echo "  Environment Variables:"
+  echo "    CONFIG                 contents of a Zandronum configuration file, base64 encoded (default: '')"
   echo "    IMAGE                  the image to pull (default: 'frozenfoxx/zandronum-server:latest')"
+  echo "    OPTIONS                string of options to pass to the container (default: '')"
   echo "    RESTART                the restart policy for the container (default: 'always')"
 }
 
