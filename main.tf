@@ -23,10 +23,16 @@ resource "linode_instance" "main" {
     destination = "/tmp"
   }
 
+  provisioner "file" {
+    source      = var.wads_upload_dir
+    destination = "/tmp/wads"
+  }
+
   provisioner "remote-exec" {
     inline = [
       "chmod 755 /tmp/scripts/*.sh",
       "/tmp/scripts/install_docker.sh",
+      "mv /tmp/wads /data/wads",
       "CONFIG=${var.config} /tmp/scripts/install_zandronum_server.sh"
     ]
   }

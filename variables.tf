@@ -52,3 +52,8 @@ variable "type" {
   default     = "g6-nanode-1"
   description = "Type of instance"
 }
+
+variable "wads_upload_dir" {
+  default     = ""
+  description = "Directory path containing all files to upload to /data/wads"
+}
