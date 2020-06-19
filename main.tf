@@ -33,7 +33,8 @@ resource "linode_instance" "main" {
       "chmod 755 /tmp/scripts/*.sh",
       "/tmp/scripts/install_docker.sh",
       "mv /tmp/wads /data/wads",
-      "CONFIG=${var.config} /tmp/scripts/install_zandronum_server.sh"
+      "mv /tmp/scripts/* /usr/local/bin/",
+      "CONFIG=${var.config} OPTIONS=${var.options} /usr/local/bin/install_zandronum_server.sh"
     ]
   }
 }
