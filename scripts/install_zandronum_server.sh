@@ -26,7 +26,7 @@ run_container()
     --network host \
     -e CONFIG=${CONFIG} \
     -p 10666:10666 \
-    -v ${DATA_DIR}/wads/:/wads \
+    -v ${DATA_DIR}/wads/:/wads:ro \
     --name='zandronum-server' \
     ${IMAGE} \
     ${OPTIONS}
