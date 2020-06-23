@@ -9,6 +9,20 @@ RESTART=${RESTART:-'always'}
 
 # Functions
 
+## Output the configuration to disk
+dump_config()
+{
+  echo "Saving config to ${DATA_DIR}/zandronum-server-config..."
+  echo ${CONFIG} > ${DATA_DIR}/zandronum-server-config
+}
+
+## Output the options to disk
+dump_options()
+{
+  echo "Saving options to ${DATA_DIR}/zandronum-server-options..."
+  echo ${OPTIONS} > ${DATA_DIR}/zandronum-server-options
+}
+
 ## Install the container
 install_container()
 {
@@ -60,4 +74,6 @@ while [[ "$1" != "" ]]; do
 done
 
 install_container
+dump_config
+dump_options
 run_container
