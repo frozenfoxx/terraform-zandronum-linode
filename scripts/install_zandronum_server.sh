@@ -14,6 +14,7 @@ dump_config()
 {
   echo "Saving config to ${DATA_DIR}/zandronum-server-config..."
   echo ${CONFIG} > ${DATA_DIR}/zandronum-server-config
+  chmod 640 ${DATA_DIR}/zandronum-server-config
 }
 
 ## Output the options to disk
@@ -21,6 +22,7 @@ dump_options()
 {
   echo "Saving options to ${DATA_DIR}/zandronum-server-options..."
   echo ${OPTIONS} > ${DATA_DIR}/zandronum-server-options
+  chmod 640 ${DATA_DIR}/zandronum-server-options
 }
 
 ## Install the container
