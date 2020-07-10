@@ -35,7 +35,7 @@ resource "linode_instance" "main" {
       "/usr/local/bin/install_fail2ban.sh",
       "/usr/local/bin/install_docker.sh",
       "mv /tmp/wads /data/wads",
-      "CONFIG=\"${var.config}\" OPTIONS=\"${var.options}\" /usr/local/bin/install_zandronum_server.sh"
+      "CONFIG=\"${var.config}\" OPTIONS=\"${var.options}\" /usr/local/bin/zandronum_server.sh install"
     ]
   }
 }
