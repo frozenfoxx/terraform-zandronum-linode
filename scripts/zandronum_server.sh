@@ -32,6 +32,20 @@ install_container()
   docker pull ${IMAGE}
 }
 
+## Load CONFIG from file on disk
+load_config()
+{
+  echo "Loading config from ${DATA_DIR}/zandronum-server-config..."
+  CONFIG=$(cat ${DATA_DIR}/zandronum-server-config)
+}
+
+## Load OPTIONS from file on disk
+load_options()
+{
+  echo "Loading options from ${DATA_DIR}/zandronum-server-options..."
+  OPTIONS=$(cat ${DATA_DIR}/zandronum-server-options)
+}
+
 ## Run the container
 run_container()
 {
@@ -46,6 +60,14 @@ run_container()
     --name='zandronum-server' \
     ${IMAGE} \
     ${OPTIONS}
+}
+
+## Stop the container
+stop_container()
+{
+  echo "Stopping the container..."
+  docker kill zandronum-server
+  echo y | docker container prune -a
 }
 
 ## Display usage information
@@ -66,6 +88,23 @@ usage()
 ## Argument parsing
 while [[ "$1" != "" ]]; do
   case $1 in
+    install )     install_container
+                  dump_config
+                  dump_options
+                  run_container
+                  exit 0
+                  ;;
+    restart )     stop_container
+                  load_options
+                  load_config
+                  run_container
+                  ;;
+    start )       load_options
+                  load_config
+                  run_container
+                  ;;
+    stop )        stop_container
+                  ;;
     -h | --help ) usage
                   exit 0
                   ;;
@@ -74,8 +113,3 @@ while [[ "$1" != "" ]]; do
   esac
   shift
 done
-
-install_container
-dump_config
-dump_options
-run_container
