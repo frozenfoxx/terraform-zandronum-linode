@@ -32,10 +32,11 @@ module "zandronum" {
 
 Scripts and files on disk are provided for ease of control of the Zandronum server.
 
-* **Control script**: `/usr/local/bin/zandronum_server.sh`
+* **Control script**: `/usr/local/bin/zandronum_server.sh`.
 * **Configuration files**
   * `/data/zandronum_server_config`: `base64`-encoded server configuration INI file.
   * `/data/zandronum_server_options`: plaintext string of options to provide to the server.
+* **Data files**: `/data/wads`.
 * **Procedures**
   * **Fresh installation**: `CONFIG=[base64 server INI] OPTIONS=[string of options] /usr/local/bin/zandronum_server.sh install`
   * **Adjust options**: `[edit either or both files] ; /usr/local/bin/zandronum_server.sh restart`
