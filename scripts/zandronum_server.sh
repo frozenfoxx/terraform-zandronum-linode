@@ -67,7 +67,7 @@ stop_container()
 {
   echo "Stopping the container..."
   docker kill zandronum-server
-  echo y | docker container prune -a
+  echo y | docker container prune
 }
 
 ## Display usage information
