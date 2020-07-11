@@ -73,9 +73,14 @@ stop_container()
 ## Display usage information
 usage()
 {
-  echo "Usage: [Environment Variables] install_zandronum_server.sh [arguments]"
+  echo "Usage: [Environment Variables] install_zandronum_server.sh [arguments] [command]"
   echo "  Arguments:"
   echo "    -h                     display usage information"
+  echo "  Commands:"
+  echo "    install                set up and install the server"
+  echo "    restart                restart the server"
+  echo "    start                  start the server"
+  echo "    stop                   stop the server"
   echo "  Environment Variables:"
   echo "    CONFIG                 contents of a Zandronum configuration file, base64 encoded (default: '')"
   echo "    IMAGE                  the image to pull (default: 'frozenfoxx/zandronum-server:latest')"
