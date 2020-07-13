@@ -73,7 +73,7 @@ stop_container()
 ## Display usage information
 usage()
 {
-  echo "Usage: [Environment Variables] install_zandronum_server.sh [arguments] [command]"
+  echo "Usage: [Environment Variables] zandronum_server.sh [arguments] [command]"
   echo "  Arguments:"
   echo "    -h                     display usage information"
   echo "  Commands:"
