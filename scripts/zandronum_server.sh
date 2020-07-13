@@ -100,13 +100,13 @@ while [[ "$1" != "" ]]; do
                   exit 0
                   ;;
     restart )     stop_container
-	          install_container
+                  install_container
                   load_options
                   load_config
                   run_container
                   ;;
     start )       install_container
-	          load_options
+                  load_options
                   load_config
                   run_container
                   ;;
