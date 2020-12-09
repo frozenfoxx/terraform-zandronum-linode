@@ -5,7 +5,6 @@ Deploy a [Zandronum](https://zandronum.com/) server in [Linode](https://linode.c
 # Requirements
 
 * a Linode account.
-* the `linode.ssh_key` resource is handled elsewhere.
 * a directory containing all desired files to upload.
 
 # Usage
@@ -16,7 +15,7 @@ To use this module, in your `main.tf` TerraForm code for a deployment insert the
 module "zandronum" {
   source = "github.com/frozenfoxx/terraform-zandronum-linode"
 
-  authorized_keys = ["${linode_sshkey.terraform.ssh_key}"]
+  authorized_keys = [chomp(file(var.public_ssh_key))]
   config          = var.zandronum_server_config
   image           = var.image
   name            = "zandronum"

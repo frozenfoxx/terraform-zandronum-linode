@@ -1,4 +1,4 @@
-resource "linode_instance" "main" {
+resource "linode_instance" "linode_id" {
   authorized_keys = var.authorized_keys
   image           = var.image
   group           = var.group
