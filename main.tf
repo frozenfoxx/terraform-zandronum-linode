@@ -1,13 +1,12 @@
 resource "linode_instance" "main" {
-  label           = var.name
-  image           = var.image
-  region          = var.region
-  type            = var.type
   authorized_keys = var.authorized_keys
+  image           = var.image
+  group           = var.group
+  label           = var.name
+  region          = var.region
   root_pass       = var.root_pass
-
-  group = var.group
-  tags = var.tags
+  tags            = var.tags
+  type            = var.type
 
   connection {
     type        = "ssh"
